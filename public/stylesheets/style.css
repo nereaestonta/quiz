@@ -12,3 +12,4 @@ nav span             { margin: 0px 10px 0px 0px; }
 #errorMsgs           { color: #f61; font-size: smaller; }
 table                { width: 100%; border-radius: 10px; background: #fff;  margin: 15px auto; }
 tr:nth-child(2n) 	 { background: #ececec; }
+.right 				 { float: right; }
