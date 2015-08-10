@@ -8,5 +8,15 @@
 
 <p><strong>Comentarios:</strong></p>
 <% for (index in quiz.Comments) { %>
-	<p>- <%= quiz.Comments[index].texto %></p>
+	<% if (quiz.Comments[index].publicado || session.user) { %>
+	<p>- <%= quiz.Comments[index].texto %>
+	<% if (session.user && !quiz.Comments[index].publicado) { %>
+		<a href="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[index].id %>/publish"><button>Publicar</button></a>
+	<% } %>
+	</p>
+	<% } %>
+<% } %>
+<br />
+<% if (!session.user) { %>
+	<small>Si has publicado un comentario y no aparece aquí es porque está pendiente de moderación. Debes <a href="/login">iniciar sesión</a> para moderar comentarios. Gracias.</small>
 <% } %>
