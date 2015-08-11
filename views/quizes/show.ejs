@@ -6,7 +6,11 @@
 
 <p><a href="/quizes/<%= quiz.id %>/comments/new"><button>Nuevo comentario</button></a></p>
 
+<% if (quiz.Comments.length) { %>
 <p><strong>Comentarios:</strong></p>
+<% } else { %>
+<p>Aún no hay comentarios. Sé el primero en comentar.</p>
+<% } %>
 <% for (index in quiz.Comments) { %>
 	<% if (quiz.Comments[index].publicado || session.user) { %>
 	<p>- <%= quiz.Comments[index].texto %>

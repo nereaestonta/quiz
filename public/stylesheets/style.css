@@ -13,3 +13,4 @@ nav span             { margin: 0px 10px 0px 0px; }
 table                { width: 100%; border-radius: 10px; background: #fff;  margin: 15px auto; }
 tr:nth-child(2n) 	 { background: #ececec; }
 .right 				 { float: right; }
+.barChart, .pieChart { margin-top: 10px; }

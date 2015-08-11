@@ -39,6 +39,19 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Auto log out
+app.use(function(req, res, next) {
+  var twoMinutes = 120000;
+  if (req.session.user) {
+    if ((Date.now() - req.session.user.sessionTime) > twoMinutes) {
+      delete req.session.user;
+    } else {
+      req.session.user.sessionTime = Date.now();
+    }
+  }
+  next();
+});
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler
